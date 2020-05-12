@@ -1,7 +1,6 @@
 # Angular Demo app for reactive components
 
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+Demo for Angular reactive forms
 
 ## Development server
 
