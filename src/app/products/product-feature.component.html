@@ -1,0 +1,69 @@
+<form *ngIf="productFeatureForm"  [formGroup]="productFeatureForm">
+    <h5>Product component</h5>
+    <div class="row">
+        <div class="col-md-12">&nbsp;</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">&nbsp;</div>
+    </div>
+    <div class="row required-field">
+        <div class="col-md-4">
+            <label class="cus-form-label">Product Name</label>
+            <input class="form-control minimal" id="productName" formControlName="productName" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">&nbsp;</div>
+    </div>
+    <div class="row required-field">
+        <div class="col-md-4">
+            <label class="cus-form-label">Product Code</label>
+            <input class="form-control minimal" id="productCode" formControlName="productCode">
+        </div>
+    </div>
+
+    <div *ngFor="let prod of p.controls; let i = index" class="list-group list-group-flush">
+        <div class="list-group-item">
+            <h5 class="card-title">Product Feature {{i + 1}}</h5>
+            <div [formGroup]="prod" >
+                <div class="row required-field">
+                    <div class="col-md-4">
+                        <label class="cus-form-label">Feature Name</label>
+                        <input class="form-control minimal" id="{{'name' + i}}" formControlName="featureName">
+                    </div>
+                </div>
+                <div class="row required-field">
+                    <div class="col-md-4">
+                        <label class="cus-form-label">Feature Date</label>
+                        <input class="form-control minimal" id="{{'featureDescription' + i}}"
+                        formControlName="featureAddedDate">
+                    </div>
+                </div>
+                <div class="row required-field">
+                    <div class="col-md-4">
+                        <label class="cus-form-label">Feature Description</label>
+                        <input class="form-control minimal" id="{{'featureDescription' + i}}"
+                    formControlName="featureDescription">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">&nbsp;</div>
+            </div>
+            <ng-container>
+                <button id="{{'remoeMinus' +i}}" class="btn btn-xs btn-danger"
+                    (click)="removeNewProdField(i)">
+                    <i class="fa fa-minus">Remove Product</i>
+                </button>
+            </ng-container>
+            <ng-container>
+                <button id="{{'addrec'+ i }}" class="btn btn-xs btn-primary"
+                    (click)="addNewProdField(i)">
+                    <i class="fa fa-plus">Add Product</i>
+                </button>
+            </ng-container>
+        </div>
+    </div>
+    <!-- <button (click)="submitForm()">Submit Form</button> -->
+</form>
